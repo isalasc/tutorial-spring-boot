@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+	<meta charset="UTF-8"/>
+	<title th:text="${titulo}"></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  <a class="navbar-brand" href="#">
+	    	<img th:src="@{/img/logo.png}" width="30" height="30" alt="">
+	  	  </a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" th:href="@{/productos/lista}">Productos</a>
+		      </li>
+		    </ul>
+		    <form class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
+		      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Buscar</button>
+		    </form>
+		  </div>
+		</nav>
+	</header>
+	
+	
+	<div class="container">
+	</div>
+	
+	<footer th:fragment="footer" class="bg-dark">
+		<span class="info-copyrigth"><a href="https://programadoointentandolo.com">programadoointentandolo.com</a> &copy; 2018</span>
+	</footer>
+</body>
+</html>

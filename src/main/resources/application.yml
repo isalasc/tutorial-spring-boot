@@ -1,0 +1,22 @@
+aplicacion:
+  nombre: Tutorial Spring Boot
+   
+server:
+  port: 9876
+  
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:8889/pruebas?useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    hibernate:
+      ddl-auto: create-drop
+      
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
