@@ -3,6 +3,8 @@ aplicacion:
    
 server:
   port: 9876
+  servlet:
+    context-path: /miapp
   
 spring:
   datasource:
