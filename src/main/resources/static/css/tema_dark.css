@@ -1,3 +1,7 @@
+body {
+	background-color: #454b51;
+	color: #fff;
+}
 
 .container {
 	margin-top: 20px;
@@ -14,4 +18,9 @@ footer {
 
 footer .info-copyrigth {
 	display: inline-block;
+	color: #fff;
+}
+
+footer .info-copyrigth a {
+	color: #fff;
 }

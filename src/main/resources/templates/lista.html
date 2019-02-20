@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/layout::head">
-	<meta charset="UTF-8">
+<head th:replace="layouts/base::head(dark)">
+	<meta charset="UTF-8"/>
 </head>
 <body>
-	<header th:replace="layout/layout::header"></header>
-	
+	<header th:replace="layouts/base::header(dark)"></header>
+
 	<div class="container">
 		<div class="card bg-dark">
 			<div class="card-header">
@@ -43,6 +43,6 @@
 		</div>
 	</div>
 	
-	<footer th:replace="layout/layout::footer" class="bg-dark"></footer>
+	<footer th:replace="layouts/base::footer(dark)"></footer>
 </body>
 </html>
