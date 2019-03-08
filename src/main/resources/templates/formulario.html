@@ -12,29 +12,38 @@
 				<h3>Nuevo producto</h3>
 			</div>
 			<div class="card-body">
+				
+				<!-- Mostrar los errores en una lista -->
+				<!-- 
+				<div th:object="${producto}" th:remove="tag">
+					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger" role="alert">
+						<li th:each="error : ${#fields.errors('*')}" th:text="${error}"></li>
+					</ul>
+				</div>
+				 -->
+				 
 				<form th:action="@{guardar}" th:object="${producto}" method="post">
-					<!-- <input type="hidden" th:field="${producto.id}"> -->
 					<input type="hidden" th:field="*{id}" />
 		
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Código</label>
 						<div class="col-sm-6">
-							<!-- <input type="text" th:field="${producto.nombre}"> -->
-							<input type="text" th:field="*{nombre}">
+							<input type="text" th:field="*{codigo}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></small>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Nombre</label>
 						<div class="col-sm-6">
-							<!-- <input type="text" th:field="${producto.codigo}"> -->
-							<input type="text" th:field="*{codigo}">
+							<input type="text" th:field="*{nombre}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Precio</label>
 						<div class="col-sm-6">
-							<!-- <input type="text" th:field="${producto.precio}"> -->
 							<input type="text" th:field="*{precio}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></small>
 						</div>
 					</div>
 					<div class="form-group">
