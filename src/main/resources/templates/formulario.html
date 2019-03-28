@@ -46,6 +46,14 @@
 							<small class="form-text text-danger" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></small>
 						</div>
 					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Unidades mínimas</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{unidadesMinimas}">
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('unidadesMinimas')}" th:errors="*{unidadesMinimas}"></small>
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('global')}" th:errors="global"></small>
+						</div>
+					</div>
 					<div class="form-group">
 						<div class="col-sm-6">
 							<input type="submit" value="Añadir producto" class="btn btn-outline-primary">

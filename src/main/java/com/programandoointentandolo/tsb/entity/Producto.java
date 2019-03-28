@@ -11,6 +11,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.programandoointentandolo.tsb.validator.ProductoCodigo;
+import com.programandoointentandolo.tsb.validator.ProductoPrecioUnidadesMinimo;
+
+@ProductoPrecioUnidadesMinimo
 @Entity
 public class Producto {
 
@@ -18,6 +22,7 @@ public class Producto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@ProductoCodigo
 	@Size(min = 3, max = 8)
 	@Pattern(regexp = "[A-Z0-9]+")
 	private String codigo;
@@ -29,6 +34,10 @@ public class Producto {
 	@Min(2)
 	@Max(100)
 	private Double precio;
+	
+	@NotNull
+	@Min(1)
+	private Integer unidadesMinimas;
 
 	public Producto() {
 
@@ -64,6 +73,14 @@ public class Producto {
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
+	}
+
+	public Integer getUnidadesMinimas() {
+		return unidadesMinimas;
+	}
+
+	public void setUnidadesMinimas(Integer unidadesMinimas) {
+		this.unidadesMinimas = unidadesMinimas;
 	}
 
 }
