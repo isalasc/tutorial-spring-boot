@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="card bg-dark">
 			<div class="card-header">
-				<h3>Nuevo producto</h3>
+				<h3 th:text="${accion} == 'guardar' ? 'Nuevo producto' : 'Editar producto'"></h3>
 			</div>
 			<div class="card-body">
 				
@@ -22,7 +22,7 @@
 				</div>
 				 -->
 				 
-				<form th:action="@{guardar}" th:object="${producto}" method="post">
+				<form th:action="@{${accion}}" th:object="${producto}" method="post">
 					<input type="hidden" th:field="*{id}" />
 		
 					<div class="form-group row">
@@ -56,8 +56,8 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-6">
-							<input type="submit" value="Añadir producto" class="btn btn-outline-primary">
-							<a th:href="@{lista}" class="btn btn-outline-danger">Cancelar</a>
+							<input type="submit" value="Guardar" class="btn btn-outline-primary">
+							<a th:href="@{${accion} == 'guardar' OR ${#fields.hasErrors('*')} ? 'lista' : '../lista'}" class="btn btn-outline-danger">Cancelar</a>
 						</div>
 					</div>
 				</form>

@@ -19,7 +19,7 @@
 							<th>Código</th>
 							<th>Nombre</th>
 							<th>Precio</th>		
-							<th></th>					
+							<th></th>			
 						</tr>
 					</thead>
 					<tbody>
@@ -28,7 +28,10 @@
 							<td th:text="${producto.codigo}"></td>
 							<td th:text="${producto.nombre}"></td>
 							<td th:text="${producto.precio}"></td>
-							<td><a th:href="@{eliminar/} + ${producto.id}" th:text="'Eliminar'" class="btn btn-outline-danger"></a></td>
+							<td>
+								<a th:href="@{editar/} + ${producto.id}" th:text="'Editar'" class="btn btn-outline-primary"></a>
+								<a th:href="@{eliminar/} + ${producto.id}" th:text="'Eliminar'" class="btn btn-outline-danger"></a>
+							</td>
 						</tr>
 					</tbody>
 					<tfoot>

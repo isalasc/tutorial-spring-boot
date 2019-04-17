@@ -8,17 +8,22 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.programandoointentandolo.tsb.validator.ProductoCodigo;
 import com.programandoointentandolo.tsb.validator.ProductoPrecioUnidadesMinimo;
+import com.programandoointentandolo.tsb.validator.grupos.Crear;
+import com.programandoointentandolo.tsb.validator.grupos.Editar;
 
 @ProductoPrecioUnidadesMinimo
 @Entity
 public class Producto {
 
 	@Id
+	@Null(groups = Crear.class)
+	@NotNull(groups = Editar.class)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
@@ -31,7 +36,7 @@ public class Producto {
 	private String nombre;
 
 	@NotNull
-	@Min(2)
+	@Min(value = 2, groups = {Crear.class, Editar.class})
 	@Max(100)
 	private Double precio;
 	
