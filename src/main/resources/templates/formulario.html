@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="card bg-dark">
 			<div class="card-header">
-				<h3 th:text="${accion} == 'guardar' ? 'Nuevo producto' : 'Editar producto'"></h3>
+				<h3 th:text="${accion} == 'guardar' ? #{productos.formulario.titulo.nuevo} : #{productos.formulario.titulo.editar}"></h3>
 			</div>
 			<div class="card-body">
 				
@@ -26,28 +26,28 @@
 					<input type="hidden" th:field="*{id}" />
 		
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Código</label>
+						<label class="col-sm-2 col-form-label" th:text="#{productos.producto.codigo}"></label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{codigo}">
 							<small class="form-text text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></small>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Nombre</label>
+						<label class="col-sm-2 col-form-label" th:text="#{productos.producto.nombre}"></label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{nombre}">
 							<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Precio</label>
+						<label class="col-sm-2 col-form-label" th:text="#{productos.producto.precio}"></label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{precio}">
 							<small class="form-text text-danger" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></small>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Unidades mínimas</label>
+						<label class="col-sm-2 col-form-label" th:text="#{productos.producto.unidadesMinimas}"></label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{unidadesMinimas}">
 							<small class="form-text text-danger" th:if="${#fields.hasErrors('unidadesMinimas')}" th:errors="*{unidadesMinimas}"></small>
@@ -56,8 +56,8 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-6">
-							<input type="submit" value="Guardar" class="btn btn-outline-primary">
-							<a th:href="@{${accion} == 'guardar' OR ${#fields.hasErrors('*')} ? 'lista' : '../lista'}" class="btn btn-outline-danger">Cancelar</a>
+							<input type="submit" th:value="#{productos.acciones.guardar}" class="btn btn-outline-primary">
+							<a th:href="@{${accion} == 'guardar' OR ${#fields.hasErrors('*')} ? 'lista' : '../lista'}" class="btn btn-outline-danger" th:text="#{productos.acciones.cancelar}"></a>
 						</div>
 					</div>
 				</form>

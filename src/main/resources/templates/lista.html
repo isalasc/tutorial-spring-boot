@@ -9,16 +9,16 @@
 	<div class="container">
 		<div class="card bg-dark">
 			<div class="card-header">
-				<h3>Lista de productos</h3>
+				<h3 th:text="#{productos.lista.titulo}"></h3>
 			</div>
 			<div class="card-body">
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Id</th>
-							<th>Código</th>
-							<th>Nombre</th>
-							<th>Precio</th>		
+							<th th:text="#{productos.producto.id}"></th>
+							<th th:text="#{productos.producto.codigo}"></th>
+							<th th:text="#{productos.producto.nombre}"></th>
+							<th th:text="#{productos.producto.precio}"></th>		
 							<th></th>			
 						</tr>
 					</thead>
@@ -29,15 +29,15 @@
 							<td th:text="${producto.nombre}"></td>
 							<td th:text="${producto.precio}"></td>
 							<td>
-								<a th:href="@{editar/} + ${producto.id}" th:text="'Editar'" class="btn btn-outline-primary"></a>
-								<a th:href="@{eliminar/} + ${producto.id}" th:text="'Eliminar'" class="btn btn-outline-danger"></a>
+								<a th:href="@{editar/} + ${producto.id}" th:text="#{productos.acciones.editar}" class="btn btn-outline-primary"></a>
+								<a th:href="@{eliminar/} + ${producto.id}" th:text="#{productos.acciones.eliminar}" class="btn btn-outline-danger"></a>
 							</td>
 						</tr>
 					</tbody>
 					<tfoot>
 						<tr>
 							<td colspan="5">
-								<a th:href="@{crear}" class="btn btn-outline-primary btn-block">Añadir Producto</a>
+								<a th:href="@{crear}" class="btn btn-outline-primary btn-block" th:text="#{productos.acciones.anadir}"></a>
 							</td>
 						</tr>
 					</tfoot>

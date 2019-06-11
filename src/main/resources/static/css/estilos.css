@@ -15,3 +15,8 @@ footer {
 footer .info-copyrigth {
 	display: inline-block;
 }
+
+
+header .idiomas {
+	padding: 0 10px;
+}

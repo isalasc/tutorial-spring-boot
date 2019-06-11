@@ -1,6 +1,3 @@
-aplicacion:
-  nombre: Tutorial Spring Boot
-   
 server:
   port: 9876
   servlet:
@@ -16,6 +13,9 @@ spring:
     database-platform: org.hibernate.dialect.MySQL57Dialect
     hibernate:
       ddl-auto: create-drop
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
       
 logging:
   level:

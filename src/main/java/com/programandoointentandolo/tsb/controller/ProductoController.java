@@ -5,7 +5,8 @@ import java.util.Map;
 import javax.validation.groups.Default;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -29,15 +30,15 @@ public class ProductoController {
 	public static final String VISTA_LISTA = "lista";
 	public static final String VISTA_FORMULARIO = "formulario";
 
-	@Value("${aplicacion.nombre}")
-	private String nombreAplicacion;
-
 	@Autowired
 	private ProductoService productoService;
 
+	@Autowired
+	private MessageSource mensajes;
+
 	@GetMapping(value = "/lista")
 	public String listar(Model model) {
-		model.addAttribute("titulo", nombreAplicacion);
+		model.addAttribute("titulo", mensajes.getMessage("aplicacion.nombre", null, LocaleContextHolder.getLocale()));
 		model.addAttribute("productos", productoService.obtenerTodosProductos());
 
 		return VISTA_LISTA;
@@ -45,7 +46,7 @@ public class ProductoController {
 
 	@GetMapping(value = "/listaModelMap")
 	public String listarModelMap(ModelMap model) {
-		model.addAttribute("titulo", nombreAplicacion);
+		model.addAttribute("titulo", mensajes.getMessage("aplicacion.nombre", null, LocaleContextHolder.getLocale()));
 		model.addAttribute("productos", productoService.obtenerTodosProductos());
 
 		return VISTA_LISTA;
@@ -54,7 +55,7 @@ public class ProductoController {
 	@GetMapping("/listaModelAndView")
 	public ModelAndView listarModelAndView() {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("titulo", nombreAplicacion);
+		mav.addObject("titulo", mensajes.getMessage("aplicacion.nombre", null, LocaleContextHolder.getLocale()));
 		mav.addObject("productos", productoService.obtenerTodosProductos());
 		mav.setViewName(VISTA_LISTA);
 
@@ -65,7 +66,7 @@ public class ProductoController {
 	public String crear(Map<String, Object> model) {
 		Producto producto = new Producto();
 		model.put("producto", producto);
-		model.put("titulo", nombreAplicacion);
+		model.put("titulo", mensajes.getMessage("aplicacion.nombre", null, LocaleContextHolder.getLocale()));
 		model.put("accion", "guardar");
 
 		return VISTA_FORMULARIO;
@@ -75,7 +76,7 @@ public class ProductoController {
 	public String editar(@PathVariable(value = "id") Integer id, Map<String, Object> model) {
 		Producto producto = productoService.obtenerProducto(id).orElse(null);
 		model.put("producto", producto);
-		model.put("titulo", nombreAplicacion);
+		model.put("titulo", mensajes.getMessage("aplicacion.nombre", null, LocaleContextHolder.getLocale()));
 		model.put("accion", "../actualizar");
 
 		return producto != null ? VISTA_FORMULARIO : "redirect:../" + VISTA_LISTA;

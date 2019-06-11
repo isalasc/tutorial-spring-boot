@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link rel="stylesheet" th:href="@{/css/estilos.css}">
 	<link rel="stylesheet" th:href="@{/css/tema_} + ${tema} + .css">
+	<link rel="icon" type="image/png" th:href="@{/img/logo.png}"/>
 </head>
 
 <body>
@@ -28,12 +29,17 @@
 		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" th:href="@{/productos/lista}">Productos</a>
+		        <a class="nav-link" th:href="@{/productos/lista}" th:text="#{menu.productos}"></a>
 		      </li>
 		    </ul>
+		    <span class="idiomas">
+		    	<a th:href="|@{/}?idioma=es|"><img th:src="@{/img/idiomas/spain.svg}" width="20" height="20" alt="Español"></a>
+				<a th:href="|@{/}?idioma=es_MX|"><img th:src="@{/img/idiomas/mexico.svg}" width="20" height="20" alt="Español Mexíco"></a>
+				<a th:href="|@{/}?idioma=en|"><img th:src="@{/img/idiomas/usa.svg}" width="20" height="20" alt="English"></a>
+		    </span>
 		    <form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
-		      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Buscar</button>
+		      <input class="form-control mr-sm-2" type="search" th:placeholder="#{buscador.placeholder}" aria-label="Search">
+		      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" th:text="#{buscador.boton}"></button>
 		    </form>
 		  </div>
 		</nav>
@@ -45,7 +51,8 @@
 	
 	<!-- Pie de pagina -->
 	<footer th:fragment="footer(tema)" th:class="|bg-${tema}|">
-		<span class="info-copyrigth"><a href="https://programadoointentandolo.com">programadoointentandolo.com</a> &copy; 2018</span>
+		<span class="info-copyrigth"><a href="https://programadoointentandolo.com">programadoointentandolo.com</a> &copy; 2019</span>
+		<div>Flag icons made by <a href="https://www.flaticon.com/<?=_('authors').'/'?>freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 		    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 		    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 	</footer>
 </body>
 </html>
