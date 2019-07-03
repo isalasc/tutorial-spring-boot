@@ -2,12 +2,11 @@ server:
   port: 9876
   servlet:
     context-path: /miapp
-  
+
 spring:
+  profiles:
+    active: '@appProfile@'
   datasource:
-    url: jdbc:mysql://localhost:8889/pruebas?useSSL=false
-    username: root
-    password: root
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL57Dialect
@@ -22,3 +21,22 @@ logging:
     org:
       hibernate:
         SQL: debug
+        
+---
+
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:8889/pruebas?useSSL=false
+    username: root
+    password: root
+      
+---
+
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:mysql://10.20.30.40:3306/pruebas
+    username: user
+    password: Mipassword1+
+    

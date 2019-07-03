@@ -2,6 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
+	<profiles>
+	    <profile>
+	        <id>dev</id>
+	        <properties>
+		        <appProfile>dev</appProfile>
+		    </properties>
+		    <activation>
+		        <activeByDefault>true</activeByDefault>
+		    </activation>
+	    </profile>
+	    <profile>
+	        <id>prod</id>
+	        <properties>
+		        <appProfile>prod</appProfile>
+		    </properties>
+	    </profile>
+	</profiles>
 
 	<groupId>com.programandoointentandolo.tsb</groupId>
 	<artifactId>tutorial-spring-boot</artifactId>
@@ -22,6 +40,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>8</java.version>
+		<!-- <resource.delimiter>#{*}</resource.delimiter> -->
 	</properties>
 
 	<dependencies>
