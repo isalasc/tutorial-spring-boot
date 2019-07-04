@@ -25,3 +25,7 @@
 
 8. Perfiles Maven y Spring Boot:
 [Ver post](https://programandoointentandolo.com/2019/07/spring-boot-profiles.html)
+
+9. Como desplegar una aplicación Spring Boot + Angular en un servidor cloud VPS:
+[Ver post](https://programandoointentandolo.com/2019/07/como-desplegar-aplicacion-spring-boot-angular-servidor-cloud-vps.html)
+
